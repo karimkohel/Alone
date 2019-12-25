@@ -13,12 +13,15 @@ void initGame(game_t *game){
 	if(Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 4096) < 0)
 		SDL_Log("Unabel to init Sound : %s", SDL_GetError());
 
-	game->state = GAME_INIT;
+	game->state = GAME_RUNNING;
 	game->time = 0;
+	game->scrollX = 0;
 	game->boy.dx = 0;
 	game->boy.dy = 0;
-	game->boy.x = 200;
+	game->boy.x = 100;
 	game->boy.y = 300;
+	game->boy.onLedge = 0;
+	game->boy.faceLeft = 0;
 
 }
 
@@ -55,6 +58,8 @@ void loadGame(game_t *game){
 }
 
 void quit(game_t *game){
+	SDL_DestroyTexture(game->boyText[0]);
+	SDL_DestroyTexture(game->boyText[1]);
 	SDL_DestroyTexture(game->brick);
 	SDL_DestroyTexture(game->mapText);
 	SDL_DestroyRenderer(game->renderer);

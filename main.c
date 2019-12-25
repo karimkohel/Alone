@@ -22,8 +22,9 @@ int main(){
 
 	while( game.state != GAME_CLOSED ){
 		getEvents(&game);
-		// physics(&game);
 		render(&game);
+		physics(&game);
+		detectCollision(&game);
 	}
 
 	//quit everything

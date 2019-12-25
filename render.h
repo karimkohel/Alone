@@ -25,6 +25,8 @@ void render(game_t *game){
 
 	SDL_RenderPresent(game->renderer);
 
+	SDL_Delay(10);
+
 }
 
 

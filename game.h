@@ -4,6 +4,8 @@
 #define WINDOW_W 950
 #define WINDOW_H 650
 
+#define GRAVITY 0.30f
+
 #define MAX 255
 #define GAME_INIT 0
 #define GAME_RUNNING 1
@@ -16,6 +18,7 @@ typedef struct{
 	int dx,dy;
 	int animFrame;
 	int onLedge;
+	int faceLeft;
 }man_t;
 
 typedef struct{
@@ -43,7 +46,8 @@ typedef struct{
 	int state;
 
 	//gamestuff
-	double time;
+	int time;
+	int scrollX;
 }game_t;
 
 #endif //GAME_H_
