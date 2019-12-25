@@ -6,21 +6,22 @@
 #include <math.h>
 #include "game.h"
 #include "init&load&quit.h"
+#include "events.h"
+#include "render.h"
 
-int main(int argc, char const *argv[]){
+//init game state 
+game_t game;
 
-	//init game state 
-	game_t game;
+int main(){
 
 	//init everything
 	initGame(&game);
 	//load everything
 	loadGame(&game);
 
-	while( game.gamestate == GAME_RUNNING ){
-		SDL_SetRenderDrawColor(game.renderer, MAX, MAX, MAX, MAX);
-		SDL_RenderClear(game.renderer);
-		SDL_RenderPresent(game.renderer);
+	while( game.state != GAME_CLOSED ){
+		getEvents(&game);
+		render(&game);
 	}
 
 	//quit everything

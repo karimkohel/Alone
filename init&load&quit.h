@@ -17,7 +17,7 @@ void initGame(game_t *game){
 void loadGame(game_t *game){
 
 	//init window and renderer
-	game->window = SDL_CreateWindow("Archer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 650,650,0);
+	game->window = SDL_CreateWindow("Archer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_W,WINDOW_H,0);
 	game->renderer = SDL_CreateRenderer(game->window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 }
 
@@ -28,4 +28,4 @@ void quit(game_t *game){
 }
 
 
- #endif 
+ #endif //LOAD_H_ 

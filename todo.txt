@@ -4,5 +4,4 @@ To Do:
 2. implement arrows ?
 3. add collision detection
 4. stand the archer on ledges
-5. create enemies figures
-6. add enemy inteligence
+5. add targets

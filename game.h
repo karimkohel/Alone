@@ -1,10 +1,14 @@
 #ifndef GAME_H_
 #define GAME_H_
 
+#define WINDOW_W 650
+#define WINDOW_H 550
+
 #define MAX 255
 #define GAME_INIT 0
 #define GAME_RUNNING 1
 #define GAME_OVER 2
+#define GAME_CLOSED 3
 
 typedef struct{
 	
@@ -19,7 +23,10 @@ typedef struct{
 	//textures
 
 	//states
-	int gamestate;
+	int state;
+
+	//gamestuff
+	double time;
 	
 } game_t ;
 
