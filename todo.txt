@@ -1,0 +1,8 @@
+To Do:
+	
+1. start the game with an archer & ledge
+2. implement arrows ?
+3. add collision detection
+4. stand the archer on ledges
+5. create enemies figures
+6. add enemy inteligence
