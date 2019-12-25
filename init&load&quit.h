@@ -64,6 +64,7 @@ void quit(game_t *game){
 	SDL_DestroyTexture(game->mapText);
 	SDL_DestroyRenderer(game->renderer);
 	SDL_DestroyWindow(game->window);
+	TTF_Quit();
 	SDL_Quit();
 }
 

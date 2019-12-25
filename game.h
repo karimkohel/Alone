@@ -15,7 +15,7 @@
 typedef struct{
 
 	int x,y;
-	int dx,dy;
+	float dx,dy;
 	int animFrame;
 	int onLedge;
 	int faceLeft;

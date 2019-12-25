@@ -7,8 +7,8 @@
 #include "game.h"
 #include "init&load&quit.h"
 #include "events.h"
-#include "physics.h"
 #include "render.h"
+#include "physics.h"
 
 //init game state 
 game_t game;
@@ -23,7 +23,7 @@ int main(){
 	while( game.state != GAME_CLOSED ){
 		getEvents(&game);
 		render(&game);
-		physics(&game);
+		process(&game);
 		detectCollision(&game);
 	}
 

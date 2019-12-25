@@ -11,21 +11,23 @@ void render(game_t *game){
 	SDL_RenderCopy(game->renderer, game->mapText, NULL, &mapRect);
 
 	//ledges
-	for(int i=0; i<100; ++i){
-		SDL_Rect ledgeRect = {game->ledges[i].x, game->ledges[i].y, game->ledges[i].w, game->ledges[i].h};
+	for(int i=0; i<50; ++i){
+		SDL_Rect ledgeRect = {game->scrollX+game->ledges[i].x, game->ledges[i].y, game->ledges[i].w, game->ledges[i].h};
 		SDL_RenderCopy(game->renderer, game->brick, NULL, &ledgeRect);
 	}
 
 	//boy
-	SDL_Rect boyRect = {game->boy.x, game->boy.y, 100, 140};
-	SDL_RenderCopyEx(game->renderer, game->boyText[0], NULL, &boyRect, 0, NULL, 0);
-
+	SDL_Rect boyRect = {game->scrollX+game->boy.x, game->boy.y, 100, 140};
+	SDL_RenderCopyEx(game->renderer, 
+		game->boyText[game->boy.animFrame], 
+		NULL, &boyRect, 0, NULL, 
+		(game->boy.faceLeft != 0));
 
 
 
 	SDL_RenderPresent(game->renderer);
 
-	SDL_Delay(10);
+	SDL_Delay(1);
 
 }
 
