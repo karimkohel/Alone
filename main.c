@@ -7,6 +7,7 @@
 #include "game.h"
 #include "init&load&quit.h"
 #include "events.h"
+#include "physics.h"
 #include "render.h"
 
 //init game state 
@@ -21,6 +22,7 @@ int main(){
 
 	while( game.state != GAME_CLOSED ){
 		getEvents(&game);
+		// physics(&game);
 		render(&game);
 	}
 
