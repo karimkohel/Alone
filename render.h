@@ -1,7 +1,7 @@
 #ifndef RENDER_H_
 #define RENDER_H_
 
-void render(game_t *game){
+void renderGame(game_t *game){
 
 	SDL_SetRenderDrawColor(game->renderer, MAX, MAX, MAX, MAX);
 	SDL_RenderClear(game->renderer);
@@ -22,14 +22,20 @@ void render(game_t *game){
 		game->boyText[game->boy.animFrame], 
 		NULL, &boyRect, 0, NULL, 
 		(game->boy.faceLeft != 0));
+}
 
+void render(game_t *game){
 
+	if(game->state == GAME_INIT){
+		renderSideScreen(game);
+	}
+	else if(game->state == GAME_RUNNING){
+		renderGame(game);
+	}
 
 	SDL_RenderPresent(game->renderer);
 
 	SDL_Delay(1);
-
 }
-
 
  #endif //RENDER_H

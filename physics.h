@@ -7,7 +7,12 @@ void process(game_t *game){
 
 	if(game->time > 120){
         game->state = GAME_RUNNING;
+        quitSideScreen(game);
 	}
+
+  if(game->boy.lives == 0){
+    game->state == GAME_OVER;
+  }
 
 	if(game->state == GAME_RUNNING){
 
@@ -54,8 +59,10 @@ void detectCollision(game_t *game){
 			mx = -25;
 		}
 
-    if(my > WINDOW_H)
-      game->state = GAME_CLOSED;
+    //die if you go off screen
+    if(my > WINDOW_H){
+        game->state = GAME_CLOSED;
+    }
 
   	if(mx+mw/2 > bx && mx+mw/2<bx+bw){
       

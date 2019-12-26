@@ -5,6 +5,7 @@
 #include <SDL2/SDL_mixer.h>
 #include <math.h>
 #include "game.h"
+#include "sidescreen.h"
 #include "init&load&quit.h"
 #include "events.h"
 #include "render.h"

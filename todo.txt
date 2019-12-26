@@ -1,7 +1,7 @@
 To Do:
-
-space out ledges with random
 	
-add startup and game over screens
+repair close event
 
-add enemies with random funtions
+add enemies
+
+implement sound

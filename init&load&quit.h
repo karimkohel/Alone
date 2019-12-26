@@ -13,7 +13,7 @@ void initGame(game_t *game){
 	if(Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 4096) < 0)
 		SDL_Log("Unabel to init Sound : %s", SDL_GetError());
 
-	game->state = GAME_RUNNING;
+	game->state = GAME_INIT;
 	game->time = 0;
 	game->scrollX = 0;
 	game->boy.dx = 0;
@@ -22,6 +22,7 @@ void initGame(game_t *game){
 	game->boy.y = 300;
 	game->boy.onLedge = 0;
 	game->boy.faceLeft = 0;
+	game->boy.lives = 3;
 
 }
 
@@ -30,6 +31,7 @@ void loadGame(game_t *game){
 	//init window and renderer
 	game->window = SDL_CreateWindow("Alone", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_W,WINDOW_H,0);
 	game->renderer = SDL_CreateRenderer(game->window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
 
 	//textures
 	SDL_Surface *tmp = IMG_Load("resources/images/map.png");
@@ -53,6 +55,11 @@ void loadGame(game_t *game){
 	game->boyText[1] = SDL_CreateTextureFromSurface(game->renderer, boy[1]);
 	SDL_FreeSurface(boy[0]);
 	SDL_FreeSurface(boy[1]);
+
+
+	//font
+	game->font = TTF_OpenFont("resources/fonts/yesterday.ttf", 38);
+	initSideScreen(game);
 
 
 }

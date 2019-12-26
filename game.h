@@ -16,9 +16,10 @@ typedef struct{
 
 	int x,y;
 	float dx,dy;
-	int animFrame;
-	int onLedge;
-	int faceLeft;
+	short animFrame;
+	short onLedge;
+	short faceLeft;
+	short lives;
 }man_t;
 
 typedef struct{
@@ -38,6 +39,12 @@ typedef struct{
 	SDL_Texture *mapText;
 	SDL_Texture *brick;
 	SDL_Texture *boyText[2];
+
+	//font
+	TTF_Font *font;
+	SDL_Texture *label;
+	int labelW;
+	int labelH;
 
 	//rects
 	ledges_t ledges[50];
