@@ -42,8 +42,8 @@ void loadGame(game_t *game){
 	for(int i=0; i<50; ++i){
 		game->ledges[i].w = 170;
 		game->ledges[i].h = 64;
-		game->ledges[i].x = i*356;
-		game->ledges[i].y = 500;
+		game->ledges[i].x = i*(300 + (rand() % 50-i)); //(340 + (rand() % (390 – 340 + 1))); 356
+		game->ledges[i].y = (450 + (rand() % 50));
 	}
 
 	SDL_Surface *boy[2];

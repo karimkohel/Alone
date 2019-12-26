@@ -1,7 +1,7 @@
 To Do:
+
+space out ledges with random
 	
-1. start the game with an archer & ledge
-2. implement arrows ?
-3. add collision detection
-4. stand the archer on ledges
-5. add targets
+add startup and game over screens
+
+add enemies with random funtions

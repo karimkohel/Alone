@@ -55,7 +55,7 @@ void detectCollision(game_t *game){
 		}
 
     if(my > WINDOW_H)
-      game->state = GAME_OVER;
+      game->state = GAME_CLOSED;
 
   	if(mx+mw/2 > bx && mx+mw/2<bx+bw){
       
