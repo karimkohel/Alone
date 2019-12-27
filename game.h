@@ -47,7 +47,7 @@ typedef struct{
 	int labelH;
 
 	//rects
-	ledges_t ledges[50];
+	ledges_t ledges[100];
 
 	//states
 	int state;

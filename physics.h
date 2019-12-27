@@ -5,13 +5,13 @@ void process(game_t *game){
 
 	game->time++;
 
-	if(game->time > 120){
+	if(game->time > 120 && game->state != GAME_CLOSED){
         game->state = GAME_RUNNING;
         quitSideScreen(game);
 	}
 
   if(game->boy.lives == 0){
-    game->state == GAME_OVER;
+    game->state = GAME_OVER;
   }
 
 	if(game->state == GAME_RUNNING){
@@ -46,7 +46,7 @@ void detectCollision(game_t *game){
 	int mw = 50, mh = 123;
 	int bx, by, bw, bh; //b for brick
 
-	for(int i=0; i<50; i++){
+	for(int i=0; i<100; i++){
 
 		bx = game->ledges[i].x;
 		bw = game->ledges[i].w-30;
@@ -61,6 +61,7 @@ void detectCollision(game_t *game){
 
     //die if you go off screen
     if(my > WINDOW_H){
+        game->boy.lives--;
         game->state = GAME_CLOSED;
     }
 

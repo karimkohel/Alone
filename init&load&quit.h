@@ -41,10 +41,10 @@ void loadGame(game_t *game){
 	SDL_Surface *tmp2 = IMG_Load("resources/images/brick.png");
 	game->brick = SDL_CreateTextureFromSurface(game->renderer, tmp2);
 	SDL_FreeSurface(tmp2);
-	for(int i=0; i<50; ++i){
+	for(int i=0; i<100; ++i){
 		game->ledges[i].w = 170;
 		game->ledges[i].h = 64;
-		game->ledges[i].x = i*(300 + (rand() % 50-i)); //(340 + (rand() % (390 – 340 + 1))); 356
+		game->ledges[i].x = i*(200 + (rand() % 100-i)); //(340 + (rand() % (390 – 340 + 1))); 356
 		game->ledges[i].y = (450 + (rand() % 50));
 	}
 

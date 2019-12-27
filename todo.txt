@@ -1,6 +1,8 @@
 To Do:
 	
-repair close event
+repair random blocks	
+
+repair game logic to substract lives
 
 add enemies
 

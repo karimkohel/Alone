@@ -3,32 +3,6 @@
 
 void getEvents(game_t *game){
 
-	SDL_Event event;
-
-	while(SDL_PollEvent(&event)){
-
-		if(event.type == SDL_QUIT){
-			game->state = GAME_CLOSED;
-		}
-		else if(event.type == SDL_KEYDOWN){
-
-			switch(event.key.keysym.sym){
-				case SDLK_ESCAPE:
-					//till now we will quit but after menu implementation we will get to menu by escape
-					game->state = GAME_CLOSED;
-					break;
-				case SDLK_SPACE:
-					if(game->boy.onLedge){
-						game->boy.dy = -8;
-						game->boy.onLedge = 0;
-					}
-					break;
-
-			}
-
-		}
-
-	}
 
 	const Uint8 *state = SDL_GetKeyboardState(NULL);
 
@@ -56,6 +30,34 @@ void getEvents(game_t *game){
 	//more jumping
 	if(state[SDL_SCANCODE_SPACE]){
 		game->boy.dy -= 0.12;
+	}
+
+	SDL_Event event;
+
+	while(SDL_PollEvent(&event)){
+
+		if(event.type == SDL_QUIT){
+			game->state = GAME_CLOSED;
+		}
+		else if(event.type == SDL_KEYDOWN){
+
+			switch(event.key.keysym.sym){
+				case SDLK_ESCAPE:
+					//till now we will quit but after menu implementation we will get to menu by escape
+					game->state = GAME_CLOSED;
+					break;
+					
+				case SDLK_SPACE:
+					if(game->boy.onLedge){
+						game->boy.dy = -8;
+						game->boy.onLedge = 0;
+					}
+					break;
+
+			}
+
+		}
+
 	}
 	
 }
