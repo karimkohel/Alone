@@ -9,7 +9,7 @@ void renderGame(game_t *game){
 	//background
 	SDL_Rect mapRect = {0, 0, WINDOW_W, WINDOW_H};
 	SDL_RenderCopy(game->renderer, game->mapText, NULL, &mapRect);
-	if(game->time % 250 == 0){
+	if(game->time % 350 == 0){
 		SDL_Rect mapLRect = {0, 0, WINDOW_W, WINDOW_H};
 		SDL_RenderCopy(game->renderer, game->mapTextLightning, NULL, &mapLRect);
 	}
@@ -34,10 +34,15 @@ void renderGame(game_t *game){
 		NULL, &boyRect, 0, NULL, 
 		(game->boy.faceLeft != 0));
 
+	//portal
+	int portalX = game->scrollX + game->ledges[LEDGESNUM-1].x;
+	int portalY = game->ledges[LEDGESNUM-1].y - game->portal.h;
+	SDL_Rect portalRect = {portalX, portalY, game->portal.w, game->portal.h};
+	SDL_RenderCopy(game->renderer, game->portalText, NULL, &portalRect);
+
 	//darkness halo
 	SDL_Rect darkRect = {0, 0, WINDOW_W, WINDOW_H};
 	SDL_RenderCopy(game->renderer, game->darkness, NULL, &darkRect);
-
 
 }
 

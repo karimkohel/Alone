@@ -16,11 +16,11 @@ void process(game_t *game){
         game->bgChannel = Mix_PlayChannel(-1, game->bgMusic, -1);
 	}
 
+
 	if(!game->boy.isDead){
 
 		if(game->boy.dx != 0 && game->boy.onLedge){
 			if(game->time%10 == 0){
-                Mix_PlayChannel(-1, game->walkingSound, 0);
 				if(game->boy.animFrame == 0){
 					game->boy.animFrame = 1;
 				}

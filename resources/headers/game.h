@@ -31,7 +31,7 @@ typedef struct{
 typedef struct{
 
 	int x,y,w,h;
-}ledges_t;
+}rectangles_t;
 
 typedef struct{
 
@@ -48,6 +48,7 @@ typedef struct{
 	SDL_Texture *boyText[2];
 	SDL_Texture *ghostText;
 	SDL_Texture *darkness;
+	SDL_Texture *portalText;
 
 	//font
 	TTF_Font *font;
@@ -59,15 +60,14 @@ typedef struct{
 	int bgChannel;
 	int dieChannel;
 	int thunderChannel;
-	int walkingChannel;
 	Mix_Chunk *bgMusic;
 	Mix_Chunk *thunderSound;
 	Mix_Chunk *dieSound;
-	Mix_Chunk *walkingSound;
 
 	//rects
-	ledges_t ledges[LEDGESNUM];
-	ledges_t ghost[GHOSTNUM];
+	rectangles_t ledges[LEDGESNUM];
+	rectangles_t ghost[GHOSTNUM];
+	rectangles_t portal;
 
 	//states
 	int state;

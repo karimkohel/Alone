@@ -60,7 +60,7 @@ void loadGame(game_t *game){
 	SDL_Surface *tmp2 = IMG_Load("resources/images/brick.png");
 	game->brick = SDL_CreateTextureFromSurface(game->renderer, tmp2);
 	SDL_FreeSurface(tmp2);
-	for(int i=0; i<100; ++i){
+	for(int i=0; i<LEDGESNUM; ++i){
 		game->ledges[i].w = 170;
 		game->ledges[i].h = 64;
 		game->ledges[i].x = i*(200 + (rand() % 70-i));//(min + (rand() % (max – min + 1))); random places
@@ -70,7 +70,7 @@ void loadGame(game_t *game){
 	SDL_Surface *tmp3 = IMG_Load("resources/images/ghost.png");
 	game->ghostText = SDL_CreateTextureFromSurface(game->renderer, tmp3);
 	SDL_FreeSurface(tmp3);
-	for(int i=0; i<50; ++i){
+	for(int i=0; i<GHOSTNUM; ++i){
 		game->ghost[i].w = 80;
 		game->ghost[i].h = 130;
 		game->ghost[i].x = i*(550 + (rand() % 151)); //(min + (rand() % (max – min + 1)));random places
@@ -89,6 +89,11 @@ void loadGame(game_t *game){
 	game->darkness = SDL_CreateTextureFromSurface(game->renderer, tmp4);
 	SDL_FreeSurface(tmp4);
 
+	SDL_Surface *tmp6 = IMG_Load("resources/images/portal.png");
+	game->portalText = SDL_CreateTextureFromSurface(game->renderer, tmp6);
+	SDL_FreeSurface(tmp6);
+	game->portal.w = 120;
+	game->portal.h = 150;
 
 	//font
 	game->font = TTF_OpenFont("resources/fonts/yesterday.ttf", 38);
@@ -102,9 +107,9 @@ void loadGame(game_t *game){
 	if(game->dieSound != NULL){
 		Mix_VolumeChunk(game->dieSound, 120);
 	}
-	game->walkingSound = Mix_LoadWAV("resources/sounds/walking.wav");
-	if(game->walkingSound != NULL){
-		Mix_VolumeChunk(game->walkingSound, 120);
+	game->thunderSound = Mix_LoadWAV("resources/sounds/thunder.wav");
+	if(game->thunderSound != NULL){
+		Mix_VolumeChunk(game->thunderSound, 30);
 	}
 
 	//init game
@@ -114,9 +119,10 @@ void loadGame(game_t *game){
 }
 
 void quit(game_t *game){
-	Mix_FreeChunk(game->walkingSound);
+	Mix_FreeChunk(game->thunderSound);
 	Mix_FreeChunk(game->dieSound);
 	Mix_FreeChunk(game->bgMusic);
+	SDL_DestroyTexture(game->portalText);
 	SDL_DestroyTexture(game->ghostText);
 	SDL_DestroyTexture(game->mapTextLightning);
 	SDL_DestroyTexture(game->darkness);
