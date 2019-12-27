@@ -43,9 +43,11 @@ typedef struct{
 
 	//textures
 	SDL_Texture *mapText;
+	SDL_Texture *mapTextLightning;
 	SDL_Texture *brick;
 	SDL_Texture *boyText[2];
 	SDL_Texture *ghostText;
+	SDL_Texture *darkness;
 
 	//font
 	TTF_Font *font;

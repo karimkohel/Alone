@@ -1,10 +1,6 @@
 To Do:
 
-2-add dark screen
-
-2-add score
-
-3-add changing background
+2-add winning
 
 
 done :
@@ -21,3 +17,6 @@ done :
 
 1-implement sound
 
+2-add dark screen
+
+3-add changing background

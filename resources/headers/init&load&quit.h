@@ -53,6 +53,10 @@ void loadGame(game_t *game){
 	game->mapText = SDL_CreateTextureFromSurface(game->renderer, tmp);
 	SDL_FreeSurface(tmp);
 
+	SDL_Surface *tmp5 = IMG_Load("resources/images/maplight.png");
+	game->mapTextLightning = SDL_CreateTextureFromSurface(game->renderer, tmp5);
+	SDL_FreeSurface(tmp5);
+
 	SDL_Surface *tmp2 = IMG_Load("resources/images/brick.png");
 	game->brick = SDL_CreateTextureFromSurface(game->renderer, tmp2);
 	SDL_FreeSurface(tmp2);
@@ -81,6 +85,10 @@ void loadGame(game_t *game){
 	SDL_FreeSurface(boy[0]);
 	SDL_FreeSurface(boy[1]);
 
+	SDL_Surface *tmp4 = IMG_Load("resources/images/darker.png");
+	game->darkness = SDL_CreateTextureFromSurface(game->renderer, tmp4);
+	SDL_FreeSurface(tmp4);
+
 
 	//font
 	game->font = TTF_OpenFont("resources/fonts/yesterday.ttf", 38);
@@ -88,7 +96,7 @@ void loadGame(game_t *game){
 	//sounds
 	game->bgMusic = Mix_LoadWAV("resources/sounds/creepybackground.wav");
 	if(game->bgMusic != NULL){
-		Mix_VolumeChunk(game->bgMusic, 0);//remember to rurn back on
+		Mix_VolumeChunk(game->bgMusic, 10);//remember to rurn back on
 	}
 	game->dieSound = Mix_LoadWAV("resources/sounds/scarydeath.wav");
 	if(game->dieSound != NULL){
@@ -110,6 +118,8 @@ void quit(game_t *game){
 	Mix_FreeChunk(game->dieSound);
 	Mix_FreeChunk(game->bgMusic);
 	SDL_DestroyTexture(game->ghostText);
+	SDL_DestroyTexture(game->mapTextLightning);
+	SDL_DestroyTexture(game->darkness);
 	SDL_DestroyTexture(game->boyText[0]);
 	SDL_DestroyTexture(game->boyText[1]);
 	SDL_DestroyTexture(game->brick);
