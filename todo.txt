@@ -1,6 +1,5 @@
 To Do:
 
-
 2-add dark screen
 
 1-implement sound
@@ -11,6 +10,8 @@ To Do:
 
 
 done :
+
+1-add death upon dropping down
 
 1-repair game logic to substract lives
 
