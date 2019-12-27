@@ -1,20 +1,27 @@
 #ifndef PHYSICS_H_
 #define PHYSICS_H_
 
+int collides(int x1,int y1,int x2,int y2,int w1,int h1,int w2,int h2){
+
+  return ( !( ( x1 > (x2+w2)) || (x2 > (x1+w1)) || (y1 > (y2+h2)) || (y2 > (y1+h1)) ) );
+}
+
 void process(game_t *game){
 
 	game->time++;
 
-	if(game->time > 120 && game->state != GAME_CLOSED){
+	if(game->time > 120 && game->state != GAME_CLOSED && !game->boy.isDead){
         game->state = GAME_RUNNING;
-        quitSideScreen(game);
+        quitLivesScreen(game);
 	}
 
-  if(game->boy.lives == 0){
-    game->state = GAME_OVER;
-  }
+    //die if you go off screen
+  	if(game->boy.y > WINDOW_H){
+		game->boy.lives--;
+		game->boy.isDead = 1;
+  	}	
 
-	if(game->state == GAME_RUNNING){
+	if(!game->boy.isDead){
 
 		if(game->boy.dx != 0 && game->boy.onLedge){
 			if(game->time%10 == 0){
@@ -29,16 +36,38 @@ void process(game_t *game){
 
 		game->boy.y += game->boy.dy;
 
-    game->boy.dy += GRAVITY;
+        game->boy.dy += GRAVITY;
 	
 		game->boy.x += game->boy.dx;
 
 		game->scrollX = -game->boy.x+150;
 
-    if(game->scrollX > 0)
-      game->scrollX = 0;
+        if(game->scrollX > 0)
+            game->scrollX = 0;
 	}
 	
+    if(game->boy.isDead && game->deathCountDown < 0){
+        game->deathCountDown = 120;
+    }
+    else if(game->deathCountDown > 0){
+
+        game->deathCountDown--;
+
+        if(game->deathCountDown <= 0){
+            
+            game->boy.lives--;
+
+            if(game->boy.lives >= 0){
+                resetGame(game);
+            }
+            else{
+                initGameOver(game);
+                game->state = GAME_OVER;
+            }
+
+        }
+    }
+
 } 
 
 void detectCollision(game_t *game){
@@ -46,6 +75,16 @@ void detectCollision(game_t *game){
 	int mw = 50, mh = 123;
 	int bx, by, bw, bh; //b for brick
 
+  //collision with ghosts
+  for(int i=0; i < GHOSTNUM; i++){
+    int ghostCollision = collides(mx, my, game->ghost[i].x, game->ghost[i].y, mw, mh, 40, 90);
+
+    if(ghostCollision){
+      game->boy.isDead = 1;
+    }
+  }
+
+  //collision with bricks
 	for(int i=0; i<100; i++){
 
 		bx = game->ledges[i].x;
@@ -58,12 +97,6 @@ void detectCollision(game_t *game){
 			game->boy.x = -25;
 			mx = -25;
 		}
-
-    //die if you go off screen
-    if(my > WINDOW_H){
-        game->boy.lives--;
-        game->state = GAME_CLOSED;
-    }
 
   	if(mx+mw/2 > bx && mx+mw/2<bx+bw){
       

@@ -12,6 +12,9 @@
 #define GAME_OVER 2
 #define GAME_CLOSED 3
 
+#define LEDGESNUM 100
+#define GHOSTNUM 50
+
 typedef struct{
 
 	int x,y;
@@ -19,6 +22,7 @@ typedef struct{
 	short animFrame;
 	short onLedge;
 	short faceLeft;
+	short isDead;
 	short lives;
 }man_t;
 
@@ -39,6 +43,7 @@ typedef struct{
 	SDL_Texture *mapText;
 	SDL_Texture *brick;
 	SDL_Texture *boyText[2];
+	SDL_Texture *ghostText;
 
 	//font
 	TTF_Font *font;
@@ -48,12 +53,15 @@ typedef struct{
 
 	//rects
 	ledges_t ledges[100];
+	ledges_t ghost[50];
 
 	//states
 	int state;
 
 	//gamestuff
-	int time;
+	int time; // the longest its gonna run is 12 hours max
+	int deathCountDown;
+	int sideTime;
 	int scrollX;
 }game_t;
 

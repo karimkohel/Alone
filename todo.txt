@@ -1,9 +1,22 @@
 To Do:
-	
-repair random blocks	
 
-repair game logic to substract lives
 
-add enemies
+2-add dark screen
 
-implement sound
+1-implement sound
+
+2-add score
+
+3-add changing background
+
+
+done :
+
+1-repair game logic to substract lives
+
+1-repaired random blocks
+
+1-add enemies
+
+1-added gameove and dead screen
+

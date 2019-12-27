@@ -16,6 +16,13 @@ void renderGame(game_t *game){
 		SDL_RenderCopy(game->renderer, game->brick, NULL, &ledgeRect);
 	}
 
+	//ghosts
+	for(int i=0; i<50; ++i){
+		SDL_Rect ghostRect = {game->scrollX+game->ghost[i].x, game->ghost[i].y, game->ghost[i].w, game->ghost[i].h};
+		SDL_RenderCopy(game->renderer, game->ghostText, NULL, &ghostRect);
+	}
+
+
 	//boy
 	SDL_Rect boyRect = {game->scrollX+game->boy.x, game->boy.y, 100, 140};
 	SDL_RenderCopyEx(game->renderer, 
@@ -27,10 +34,13 @@ void renderGame(game_t *game){
 void render(game_t *game){
 
 	if(game->state == GAME_INIT){
-		renderSideScreen(game);
+		renderLivesScreen(game);
 	}
 	else if(game->state == GAME_RUNNING){
 		renderGame(game);
+	}
+	else if(game->boy.isDead && game->state == GAME_OVER){
+		renderGameOver(game);
 	}
 
 	SDL_RenderPresent(game->renderer);
