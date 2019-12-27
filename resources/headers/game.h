@@ -1,6 +1,7 @@
 #ifndef GAME_H_
 #define GAME_H_
 
+//magic numbers
 #define WINDOW_W 950
 #define WINDOW_H 650
 
@@ -15,6 +16,7 @@
 #define LEDGESNUM 100
 #define GHOSTNUM 50
 
+//structs
 typedef struct{
 
 	int x,y;
@@ -53,14 +55,17 @@ typedef struct{
 
 	//sounds
 	int bgChannel;
+	int dieChannel;
+	int thunderChannel;
+	int walkingChannel;
 	Mix_Chunk *bgMusic;
 	Mix_Chunk *thunderSound;
 	Mix_Chunk *dieSound;
 	Mix_Chunk *walkingSound;
 
 	//rects
-	ledges_t ledges[100];
-	ledges_t ghost[50];
+	ledges_t ledges[LEDGESNUM];
+	ledges_t ghost[GHOSTNUM];
 
 	//states
 	int state;

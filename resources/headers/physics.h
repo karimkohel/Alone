@@ -20,6 +20,7 @@ void process(game_t *game){
 
 		if(game->boy.dx != 0 && game->boy.onLedge){
 			if(game->time%10 == 0){
+                Mix_PlayChannel(-1, game->walkingSound, 0);
 				if(game->boy.animFrame == 0){
 					game->boy.animFrame = 1;
 				}
@@ -44,6 +45,7 @@ void process(game_t *game){
     if(game->boy.isDead && game->deathCountDown < 0){
         game->deathCountDown = 120;
         Mix_HaltChannel(game->bgChannel);
+        Mix_PlayChannel(-1, game->dieSound, 0);
     }
     else if(game->deathCountDown > 0){
 
@@ -87,7 +89,7 @@ void detectCollision(game_t *game){ //or dropping down ya3ny
     }
 
     //collision with bricks
-	for(int i=0; i<100; i++){
+	for(int i=0; i<LEDGESNUM; i++){
 
 		bx = game->ledges[i].x;
 		bw = game->ledges[i].w-30;

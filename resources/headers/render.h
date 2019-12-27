@@ -11,13 +11,13 @@ void renderGame(game_t *game){
 	SDL_RenderCopy(game->renderer, game->mapText, NULL, &mapRect);
 
 	//ledges
-	for(int i=0; i<100; ++i){
+	for(int i=0; i<LEDGESNUM; ++i){
 		SDL_Rect ledgeRect = {game->scrollX+game->ledges[i].x, game->ledges[i].y, game->ledges[i].w, game->ledges[i].h};
 		SDL_RenderCopy(game->renderer, game->brick, NULL, &ledgeRect);
 	}
 
 	//ghosts
-	for(int i=0; i<50; ++i){
+	for(int i=0; i<GHOSTNUM; ++i){
 		SDL_Rect ghostRect = {game->scrollX+game->ghost[i].x, game->ghost[i].y, game->ghost[i].w, game->ghost[i].h};
 		SDL_RenderCopy(game->renderer, game->ghostText, NULL, &ghostRect);
 	}

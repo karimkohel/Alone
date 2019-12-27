@@ -88,7 +88,15 @@ void loadGame(game_t *game){
 	//sounds
 	game->bgMusic = Mix_LoadWAV("resources/sounds/creepybackground.wav");
 	if(game->bgMusic != NULL){
-		Mix_VolumeChunk(game->bgMusic, 35);
+		Mix_VolumeChunk(game->bgMusic, 0);//remember to rurn back on
+	}
+	game->dieSound = Mix_LoadWAV("resources/sounds/scarydeath.wav");
+	if(game->dieSound != NULL){
+		Mix_VolumeChunk(game->dieSound, 120);
+	}
+	game->walkingSound = Mix_LoadWAV("resources/sounds/walking.wav");
+	if(game->walkingSound != NULL){
+		Mix_VolumeChunk(game->walkingSound, 120);
 	}
 
 	//init game
@@ -98,6 +106,8 @@ void loadGame(game_t *game){
 }
 
 void quit(game_t *game){
+	Mix_FreeChunk(game->walkingSound);
+	Mix_FreeChunk(game->dieSound);
 	Mix_FreeChunk(game->bgMusic);
 	SDL_DestroyTexture(game->ghostText);
 	SDL_DestroyTexture(game->boyText[0]);
