@@ -61,11 +61,39 @@ void renderGameOver(game_t *game){
 }
 
 void quitGameOver(game_t *game){
-	game->state = GAME_CLOSED;
 	SDL_DestroyTexture(game->label);
 	game->label = NULL;
 }
 
+void initGameWonScreen(game_t *game){
 
+	char str[30] = "";
+
+	sprintf(str, "You have defeated level %d", game->winCount);
+
+	SDL_Color white = {MAX, MAX, MAX, MAX};
+
+	SDL_Surface *tmp = TTF_RenderText_Blended(game->font, str, white);
+	game->labelW = tmp->w;
+	game->labelH = tmp->h;
+	game->label = SDL_CreateTextureFromSurface(game->renderer, tmp);
+	SDL_FreeSurface(tmp);
+}
+
+void renderGameWonScreen(game_t *game){
+	SDL_SetRenderDrawColor(game->renderer, 0, 0, 0, MAX-170);
+
+	SDL_RenderClear(game->renderer);
+
+	SDL_SetRenderDrawColor(game->renderer, MAX, MAX, MAX, MAX);
+
+	SDL_Rect textRect = {180, 350- game->labelH, game->labelW, game->labelH};
+	SDL_RenderCopy(game->renderer, game->label, NULL, &textRect);
+}
+
+void quitGameWonScreen(game_t *game){
+	SDL_DestroyTexture(game->label);
+	game->label = NULL;
+}
 
 #endif //SIDESCREEN_H_

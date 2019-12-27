@@ -35,9 +35,9 @@ void renderGame(game_t *game){
 		(game->boy.faceLeft != 0));
 
 	//portal
-	int portalX = game->scrollX + game->ledges[LEDGESNUM-1].x;
-	int portalY = game->ledges[LEDGESNUM-1].y - game->portal.h;
-	SDL_Rect portalRect = {portalX, portalY, game->portal.w, game->portal.h};
+	game->portal.x = game->ledges[LEDGESNUM-91].x;
+	game->portal.y = game->ledges[LEDGESNUM-91].y - game->portal.h;
+	SDL_Rect portalRect = {game->scrollX + game->portal.x, game->portal.y, game->portal.w, game->portal.h};
 	SDL_RenderCopy(game->renderer, game->portalText, NULL, &portalRect);
 
 	//darkness halo
@@ -53,6 +53,9 @@ void render(game_t *game){
 	}
 	else if(game->state == GAME_RUNNING){
 		renderGame(game);
+	}
+	else if(game->state == GAME_WON && game->winCountDown > 0){
+		renderGameWonScreen(game);
 	}
 	else if(game->boy.isDead && game->state == GAME_OVER){
 		renderGameOver(game);

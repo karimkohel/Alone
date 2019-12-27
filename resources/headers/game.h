@@ -12,6 +12,7 @@
 #define GAME_RUNNING 1
 #define GAME_OVER 2
 #define GAME_CLOSED 3
+#define GAME_WON 4
 
 #define LEDGESNUM 100
 #define GHOSTNUM 50
@@ -26,6 +27,7 @@ typedef struct{
 	short faceLeft;
 	short isDead;
 	short lives;
+	short win;
 }man_t;
 
 typedef struct{
@@ -74,7 +76,9 @@ typedef struct{
 
 	//gamestuff
 	int time; // the longest its gonna run is 12 hours max
-	int deathCountDown;
+	short deathCountDown;
+	short winCount;
+	short winCountDown;
 	int sideTime;
 	int scrollX;
 }game_t;

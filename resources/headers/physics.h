@@ -10,12 +10,25 @@ void process(game_t *game){
 
 	game->time++;
 
-	if(game->time > 120 && game->state != GAME_CLOSED && !game->boy.isDead){
+	if(game->time > 120 && game->state != GAME_CLOSED && !game->boy.isDead && !game->boy.win){
         game->state = GAME_RUNNING;
         quitLivesScreen(game);
         game->bgChannel = Mix_PlayChannel(-1, game->bgMusic, -1);
 	}
 
+    if(game->boy.win && game->winCountDown < 0){
+        game->winCount++;
+        initGameWonScreen(game);
+        game->state = GAME_WON;
+        game->winCountDown = 120;
+        Mix_HaltChannel(game->bgChannel);
+    }
+    else if(game->winCountDown >= 0){
+        game->winCountDown--;
+        if(game->winCountDown <= 0){
+            resetGameWon(game);
+        }
+    }
 
 	if(!game->boy.isDead){
 
@@ -56,7 +69,7 @@ void process(game_t *game){
             game->boy.lives--;
 
             if(game->boy.lives >= 0){
-                resetGame(game);
+                resetGameLost(game);
             }
             else{
                 initGameOver(game);
@@ -65,7 +78,6 @@ void process(game_t *game){
 
         }
     }
-
 } 
 
 void detectCollision(game_t *game){ //or dropping down ya3ny
@@ -86,6 +98,11 @@ void detectCollision(game_t *game){ //or dropping down ya3ny
         if(ghostCollision){
             game->boy.isDead = 1;
         }
+    }
+
+    int portalCollide = collides(mx, my, game->portal.x, game->portal.y, mw, mh, 100, 120);
+    if(portalCollide){
+        game->boy.win = 1;
     }
 
     //collision with bricks

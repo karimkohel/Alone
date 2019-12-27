@@ -1,7 +1,6 @@
 To Do:
 
-2-add winning
-
+3-add sound for winning
 
 done :
 
@@ -20,3 +19,5 @@ done :
 2-add dark screen
 
 3-add changing background
+
+2-add winning

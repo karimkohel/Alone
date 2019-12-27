@@ -1,7 +1,21 @@
 #ifndef LOAD_H_
 #define LOAD_H_
 
-void resetGame(game_t *game){
+void resetGameWon(game_t *game){
+	game->state = GAME_INIT;
+	game->time = 0;
+	game->boy.dx = 0;
+	game->boy.dy = 0;
+	game->boy.x = 100;
+	game->boy.y = 300;
+	game->boy.onLedge = 0;
+	game->boy.isDead = 0;
+	game->winCountDown = -1;
+	game->boy.win = 0;
+	quitGameWonScreen(game);
+}
+
+void resetGameLost(game_t *game){
 	initLivesScreen(game);
 	game->state = GAME_INIT;
 	game->time = 0;
@@ -28,7 +42,7 @@ void initGame(game_t *game){
 
 	game->state = GAME_INIT;
 	game->time = 0;
-	game->deathCountDown = -1; //signifies we are not using it
+	game->deathCountDown = -1; // -ve signifies we are not using it
 	game->scrollX = 0;
 	game->boy.dx = 0;
 	game->boy.dy = 0;
@@ -38,7 +52,9 @@ void initGame(game_t *game){
 	game->boy.faceLeft = 0;
 	game->boy.lives = 3;
 	game->boy.isDead = 0;
-
+	game->boy.win = 0;
+	game->winCount = 0;
+	game->winCountDown = -1;// -ve signifies we are not using it
 }
 
 void loadGame(game_t *game){
@@ -114,8 +130,6 @@ void loadGame(game_t *game){
 
 	//init game
 	initLivesScreen(game);
-
-
 }
 
 void quit(game_t *game){
@@ -132,6 +146,7 @@ void quit(game_t *game){
 	SDL_DestroyTexture(game->mapText);
 	SDL_DestroyRenderer(game->renderer);
 	SDL_DestroyWindow(game->window);
+	quitGameOver(game);
 	TTF_Quit();
 	SDL_Quit();
 }
