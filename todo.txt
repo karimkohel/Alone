@@ -2,10 +2,7 @@
 To Do:
 -----------------
 
-1 - compile on windows
-
 2 - ENJOY THE GAME!!!
-
 
 -----------------
 In the doing:
@@ -16,6 +13,8 @@ In the doing:
 -----------------
 Done :
 -----------------
+
+1 - compile on windows
 
 1 - add death upon dropping down
 
