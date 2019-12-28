@@ -1,6 +1,8 @@
 To Do:
 
+1-bug fixes and repairs
 
+2-refactor 
 
 done :
 
