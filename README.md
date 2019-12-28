@@ -1,7 +1,7 @@
-#Alone
+# Alone
 Alone is a simple 2D game written in C for a programming course.
 
-##Game Overview
+## Game Overview
 you start your journey as a parody of the game character **Limbo** .
 
 - it has infinite levels but only 3 lives.
@@ -10,14 +10,18 @@ you start your journey as a parody of the game character **Limbo** .
 
 - try your best to stay alive for as many levels as possible.
 
+![Start Screen](https://raw.githubusercontent.com/karimkohel/Alone/master/resources/proof/1.png "Startscreen")
+![GamePlay](https://raw.githubusercontent.com/karimkohel/Alone/master/resources/proof/3.png "GamePlay")
+![GamePlay](https://raw.githubusercontent.com/karimkohel/Alone/master/resources/proof/5.png "GamePlay")
 
-## APIS
+
+## APIs
 The game uses the SDL2 Library along with it's associated APIs like Mixer and TTF.
 
-##Build
+## Build
 
-###Linux
+### Linux
 It is available for Linux with a simple clone of the repository and running the binary.
 
-###Windows
+### Windows
 Will come for windows in the next few days.
