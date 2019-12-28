@@ -16,7 +16,7 @@ you start your journey as a parody of the game character **Limbo** .
 
 
 ## APIs
-The game uses the SDL2 Library along with it's associated APIs like Mixer and TTF.
+The game uses the SDL2 Library along with it's associated APIs like SDL2 Mixer and SDL2 TTF.
 
 ## Build
 
@@ -24,4 +24,12 @@ The game uses the SDL2 Library along with it's associated APIs like Mixer and TT
 It is available for Linux with a simple clone of the repository and running the binary.
 
 ### Windows
-Will come for windows in the next few days.
+There are 2 options for downloading and installing the game on windows, both of which you might need to disable your anti-virus for. 
+
+#### Cloning
+you can clone the repo and locate the installer
+
+> Alone Windows directory > installer > run installer.
+
+#### Online download
+Has yet to be hosted on a website.

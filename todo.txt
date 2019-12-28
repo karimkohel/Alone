@@ -2,13 +2,11 @@
 To Do:
 -----------------
 
-2 - ENJOY THE GAME!!!
-
 -----------------
 In the doing:
 -----------------
 
-
+2 - ENJOY THE GAME!!!
 
 -----------------
 Done :
@@ -24,7 +22,7 @@ Done :
 
 1 - add enemies
 
-1 - added gameove and dead screen
+1 - added game over and dead screen
 
 1 - implement sound
 
