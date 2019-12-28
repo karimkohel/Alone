@@ -33,3 +33,6 @@ you can clone the repo and locate the installer
 
 #### Online download
 Has yet to be hosted on a website.
+
+
+[//]: <> (Mac users can go fuck themselves.)
