@@ -32,7 +32,7 @@ you can clone the repo and locate the installer
 > Alone Windows directory > installer > run installer.
 
 #### Online download
-Head over to download [Here](https://duckduckgo.com "Download")
+Head over to download [Here](http://www.mediafire.com/file/f82112zky0cpw0z/Alone_1.1.exe/file "Download")
 
 
 [//]: <> (Mac users can go fuck themselves.)
