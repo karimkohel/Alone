@@ -21,6 +21,10 @@ int main(){
 	//load everything
 	loadGame(&game);
 
+	if(menu(&game) == 1){
+		game.state = GAME_CLOSED;
+	}
+
 	while( game.state != GAME_CLOSED ){
 		getEvents(&game);
 		render(&game);

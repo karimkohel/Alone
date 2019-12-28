@@ -1,6 +1,6 @@
 To Do:
 
-3-add sound for winning
+2-add menu for starting and pausing game
 
 done :
 
@@ -21,3 +21,5 @@ done :
 3-add changing background
 
 2-add winning
+
+3-add sound for winning

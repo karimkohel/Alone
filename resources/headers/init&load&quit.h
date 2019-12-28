@@ -127,12 +127,17 @@ void loadGame(game_t *game){
 	if(game->thunderSound != NULL){
 		Mix_VolumeChunk(game->thunderSound, 30);
 	}
+	game->portalSound = Mix_LoadWAV("resources/sounds/portal.wav");
+	if(game->portalSound != NULL){
+		Mix_VolumeChunk(game->portalSound, 30);
+	}
 
 	//init game
 	initLivesScreen(game);
 }
 
 void quit(game_t *game){
+	Mix_FreeChunk(game->portalSound);
 	Mix_FreeChunk(game->thunderSound);
 	Mix_FreeChunk(game->dieSound);
 	Mix_FreeChunk(game->bgMusic);

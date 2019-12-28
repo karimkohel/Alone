@@ -16,6 +16,7 @@
 
 #define LEDGESNUM 100
 #define GHOSTNUM 50
+#define MENU_NUM 2
 
 //structs
 typedef struct{
@@ -60,11 +61,10 @@ typedef struct{
 
 	//sounds
 	int bgChannel;
-	int dieChannel;
-	int thunderChannel;
 	Mix_Chunk *bgMusic;
 	Mix_Chunk *thunderSound;
 	Mix_Chunk *dieSound;
+	Mix_Chunk *portalSound;
 
 	//rects
 	rectangles_t ledges[LEDGESNUM];

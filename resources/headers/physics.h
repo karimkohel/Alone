@@ -22,6 +22,7 @@ void process(game_t *game){
         game->state = GAME_WON;
         game->winCountDown = 120;
         Mix_HaltChannel(game->bgChannel);
+        Mix_PlayChannel(-1, game->portalSound, 0);
     }
     else if(game->winCountDown >= 0){
         game->winCountDown--;

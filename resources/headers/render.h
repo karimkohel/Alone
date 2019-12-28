@@ -35,8 +35,8 @@ void renderGame(game_t *game){
 		(game->boy.faceLeft != 0));
 
 	//portal
-	game->portal.x = game->ledges[LEDGESNUM-91].x;
-	game->portal.y = game->ledges[LEDGESNUM-91].y - game->portal.h;
+	game->portal.x = game->ledges[LEDGESNUM-1].x;
+	game->portal.y = game->ledges[LEDGESNUM-1].y - game->portal.h;
 	SDL_Rect portalRect = {game->scrollX + game->portal.x, game->portal.y, game->portal.w, game->portal.h};
 	SDL_RenderCopy(game->renderer, game->portalText, NULL, &portalRect);
 
