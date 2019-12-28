@@ -32,7 +32,7 @@ you can clone the repo and locate the installer
 > Alone Windows directory > installer > run installer.
 
 #### Online download
-Has yet to be hosted on a website.
+Head over to download [Here](https://duckduckgo.com "Download")
 
 
 [//]: <> (Mac users can go fuck themselves.)
