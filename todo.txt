@@ -1,29 +1,42 @@
+-----------------
 To Do:
+-----------------
 
-1-bug fixes and repairs
+1 - ENJOY THE GAME!!!
 
-2-refactor 
 
-done :
+-----------------
+In the doing:
+-----------------
 
-1-add death upon dropping down
 
-1-repair game logic to substract lives
 
-1-repaired random blocks
+-----------------
+Done :
+-----------------
 
-1-add enemies
+1 - add death upon dropping down
 
-1-added gameove and dead screen
+1 - repair game logic to substract lives
 
-1-implement sound
+1 - repaired random blocks
 
-2-add dark screen
+1 - add enemies
 
-3-add changing background
+1 - added gameove and dead screen
 
-2-add winning
+1 - implement sound
 
-3-add sound for winning
+2 - add dark screen
 
-2-add menu for starting and pausing game
+3 - add changing background
+
+2 - add winning
+
+3 - add sound for winning
+
+2 - add menu for starting and pausing game
+
+1 - bug fixes and repairs
+
+2-refactor

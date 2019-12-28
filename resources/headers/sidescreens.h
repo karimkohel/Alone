@@ -103,6 +103,7 @@ void quitGameWonScreen(game_t *game){
 // but thats why we have comments right ?... for dumb ass code like this.
 int menu(game_t *game){
 
+
 	//init time for the menu only, x & y for position of button press
 	int x, y;
 
@@ -120,6 +121,8 @@ int menu(game_t *game){
 	menus[1] = TTF_RenderText_Blended(game->font, menuItem[1], colors[0]);
 
 	SDL_Texture *label[MENU_NUM];
+	label[0] = SDL_CreateTextureFromSurface(game->renderer, menus[0]);
+	label[1] = SDL_CreateTextureFromSurface(game->renderer, menus[1]);
 
 	SDL_Rect pos[MENU_NUM];
 
@@ -152,6 +155,10 @@ int menu(game_t *game){
 					// game->state = GAME_CLOSED; decided to cancel that out for now
 					SDL_FreeSurface(menus[0]);
 					SDL_FreeSurface(menus[1]);
+					SDL_DestroyTexture(game->label);
+					SDL_DestroyTexture(label[0]);
+					SDL_DestroyTexture(label[1]);
+					game->label = NULL;
 					//means menu option 1 is chosen which is "exit" 
 					//which is also the same as GAME_CLOSED but i will do both as i have no time for debugging
 					return 1;
@@ -195,6 +202,10 @@ int menu(game_t *game){
 						if(x >= pos[i].x && x <= pos[i].x+pos[i].w && y >= pos[i].y && y <= pos[i].y+pos[i].h){
 							SDL_FreeSurface(menus[0]);
 							SDL_FreeSurface(menus[1]);
+							SDL_DestroyTexture(game->label);
+							SDL_DestroyTexture(label[0]);
+							SDL_DestroyTexture(label[1]);
+							game->label = NULL;
 							return i;
 						}
 					}
@@ -202,6 +213,10 @@ int menu(game_t *game){
 
 				case SDL_KEYDOWN:
 					if(event.key.keysym.sym == SDLK_ESCAPE){
+						SDL_DestroyTexture(game->label);
+						SDL_DestroyTexture(label[0]);
+						SDL_DestroyTexture(label[1]);
+						game->label = NULL;
 						return 0;//as in the first element wich is continue
 					}
 					break;
@@ -215,12 +230,18 @@ int menu(game_t *game){
 
 		SDL_SetRenderDrawColor(game->renderer, MAX, MAX, MAX, MAX);
 
+
+
 		SDL_RenderCopy(game->renderer, label[0], NULL, &pos[0]);
 		SDL_RenderCopy(game->renderer, label[1], NULL, &pos[1]);
 
 		SDL_RenderPresent(game->renderer);
 
 	}
+	SDL_DestroyTexture(game->label);
+	SDL_DestroyTexture(label[0]);
+	SDL_DestroyTexture(label[1]);
+	game->label = NULL;
 	return 0; //not sure might hate that return later
 }
 
