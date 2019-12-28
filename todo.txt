@@ -2,7 +2,9 @@
 To Do:
 -----------------
 
-1 - ENJOY THE GAME!!!
+1 - compile on windows
+
+2 - ENJOY THE GAME!!!
 
 
 -----------------
