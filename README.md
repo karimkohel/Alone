@@ -10,9 +10,9 @@ you start your journey as a parody of the game character **Limbo** .
 
 - try your best to stay alive for as many levels as possible.
 
-![Start Screen](https://raw.githubusercontent.com/karimkohel/Alone/master/resources/proof/1.png "Startscreen")
-![GamePlay](https://raw.githubusercontent.com/karimkohel/Alone/master/resources/proof/3.png "GamePlay")
-![GamePlay](https://raw.githubusercontent.com/karimkohel/Alone/master/resources/proof/5.png "GamePlay")
+![Start Screen](https://raw.githubusercontent.com/karimkohel/Alone/master/Demo/2.png "Startscreen")
+![GamePlay](https://raw.githubusercontent.com/karimkohel/Alone/master/Demo/3.png "GamePlay")
+![GamePlay](https://raw.githubusercontent.com/karimkohel/Alone/master/Demo/5.png "GamePlay")
 
 
 ## APIs
