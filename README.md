@@ -32,7 +32,7 @@ you can clone the repo and locate the installer
 > Alone Windows directory > installer > run installer.
 
 #### Online download
-Head over to download [Here](http://www.mediafire.com/file/ur5s0o2jr0pxli8/Alone_1.2.exe/file "Download")
+Head over to download [Here](https://github.com/karimkohel/Alone/releases/download/v1.0.2/Alone_1.2.exe "Download")
 
 
 [//]: <> (Mac users can go fuck themselves.)
